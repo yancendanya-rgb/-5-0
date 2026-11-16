@@ -1,0 +1,328 @@
+/* Стилі інтерактивних елементів (лабораторна робота № 4) */
+
+/* ---------- Навігація ---------- */
+.site-header {
+  transition: box-shadow 0.2s;
+}
+
+.site-header.is-scrolled {
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+}
+
+.to-top {
+  position: fixed;
+  right: var(--space-5);
+  bottom: var(--space-5);
+  z-index: 60;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  background: var(--color-accent);
+  color: var(--color-on-accent);
+  border: 0;
+  border-radius: 50%;
+  font-size: var(--fs-lg);
+  line-height: 1;
+}
+
+.to-top:hover {
+  background: var(--color-accent-hover);
+}
+
+.to-top[hidden] {
+  display: none;
+}
+
+/* ---------- Меню: пошук і сортування ---------- */
+.menu-tools {
+  display: grid;
+  grid-template-columns: 1fr 14rem;
+  gap: var(--space-4);
+  margin-top: var(--space-5);
+}
+
+.menu-tools .field + .field {
+  margin-top: 0;
+}
+
+.menu-count {
+  margin-top: var(--space-3);
+  font-size: var(--fs-sm);
+  color: var(--color-text-muted);
+}
+
+.menu-empty[hidden] {
+  display: none;
+}
+
+.product-grid > li[hidden] {
+  display: none;
+}
+
+.link-btn {
+  align-self: flex-start;
+  padding: 0;
+  background: none;
+  border: 0;
+  font-size: var(--fs-xs);
+  color: var(--color-accent);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.link-btn:hover {
+  color: var(--color-accent-hover);
+}
+
+/* ---------- Помилки форм ---------- */
+.field__input[aria-invalid="true"] {
+  border-color: var(--color-danger);
+}
+
+.field__error {
+  font-size: var(--fs-xs);
+  color: var(--color-danger);
+}
+
+.field__error[hidden] {
+  display: none;
+}
+
+.panel > .field__error,
+fieldset > .field__error {
+  margin-top: var(--space-3);
+}
+
+.field__counter {
+  font-size: var(--fs-xs);
+  color: var(--color-text-muted);
+  text-align: right;
+}
+
+.field__counter.is-limit {
+  color: var(--color-danger);
+}
+
+.form-summary {
+  margin-block: var(--space-4) var(--space-3);
+  padding: var(--space-3) var(--space-4);
+  border: 1px solid var(--color-danger);
+  border-radius: var(--radius-sm);
+  font-size: var(--fs-sm);
+  color: var(--color-danger);
+}
+
+.form-summary[hidden] {
+  display: none;
+}
+
+.choice__input:disabled[data-past] + .choice__label {
+  opacity: 0.4;
+  text-decoration: line-through;
+  cursor: not-allowed;
+}
+
+.order-empty {
+  padding: var(--space-5);
+  text-align: center;
+  color: var(--color-text-muted);
+}
+
+.order-empty[hidden] {
+  display: none;
+}
+
+/* ---------- Модальне вікно ---------- */
+html.has-modal {
+  overflow: hidden;
+}
+
+.modal {
+  width: min(34rem, calc(100% - 2rem));
+  max-height: calc(100% - 2rem);
+  padding: 0;
+  background: var(--color-surface);
+  color: var(--color-text);
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-md);
+  overflow: auto;
+}
+
+.modal::backdrop {
+  background: rgba(0, 0, 0, 0.75);
+}
+
+.modal__close {
+  position: absolute;
+  top: var(--space-3);
+  right: var(--space-3);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  background: rgba(17, 10, 4, 0.8);
+  border: 1px solid var(--color-border-strong);
+  border-radius: 50%;
+  font-size: var(--fs-lg);
+  line-height: 1;
+}
+
+.modal__img {
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  background: var(--color-surface-raised);
+}
+
+.modal__body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  padding: var(--space-5);
+}
+
+.modal__head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-4);
+}
+
+.modal__title {
+  font-family: var(--font-display);
+  font-size: var(--fs-lg);
+  font-weight: 400;
+}
+
+.modal__price {
+  color: var(--color-accent);
+  font-weight: 600;
+}
+
+.modal__text {
+  color: var(--color-text-soft);
+  font-size: var(--fs-sm);
+}
+
+.modal__allergen {
+  font-size: var(--fs-xs);
+  color: var(--color-allergen);
+}
+
+/* ---------- Сповіщення (toast) ---------- */
+.toast-region {
+  position: fixed;
+  left: 50%;
+  bottom: var(--space-5);
+  z-index: 200;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2);
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+
+.toast {
+  padding: var(--space-3) var(--space-5);
+  background: var(--color-surface-raised);
+  border: 1px solid var(--color-accent);
+  border-radius: var(--radius-sm);
+  font-size: var(--fs-sm);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+  animation: toast-in 0.25s ease-out;
+}
+
+@keyframes toast-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+}
+
+/* ---------- Акордеон ---------- */
+.accordion__item {
+  border-bottom: 1px solid var(--color-border);
+}
+
+.accordion__item:last-child {
+  border-bottom: 0;
+}
+
+.accordion__heading {
+  font-size: var(--fs-sm);
+}
+
+.accordion__trigger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  width: 100%;
+  min-height: 2.75rem;
+  padding: var(--space-3) 0;
+  background: none;
+  border: 0;
+  font-weight: 500;
+  text-align: left;
+  color: var(--color-text);
+}
+
+.accordion__trigger::after {
+  content: "+";
+  flex: none;
+  font-size: var(--fs-lg);
+  color: var(--color-accent);
+}
+
+.accordion__trigger[aria-expanded="true"]::after {
+  content: "−";
+}
+
+.accordion__trigger:hover {
+  color: var(--color-accent);
+}
+
+.accordion__panel {
+  padding-bottom: var(--space-4);
+  font-size: var(--fs-sm);
+  color: var(--color-text-muted);
+}
+
+.accordion__panel[hidden] {
+  display: none;
+}
+
+@media (max-width: 40em) {
+  .menu-tools {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Помилка завантаження даних із сервера (лабораторна робота № 5) */
+.load-error {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem 1rem;
+  margin-block: 1rem;
+  padding: 0.875rem 1rem;
+  border: 1px solid var(--color-error, #e57373);
+  border-radius: 0.5rem;
+}
+
+.load-error p {
+  margin: 0;
+}
+
+[aria-busy="true"] {
+  opacity: 0.6;
+}
+
+/* Резервуємо місце під кошик, поки він завантажується, щоб сторінка не «стрибала» */
+.order-items[aria-busy="true"] {
+  min-height: 14rem;
+}

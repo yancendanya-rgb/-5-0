@@ -1,0 +1,795 @@
+/* Бібліотека компонентів дизайн-системи (Figma → CSS) */
+
+/* ---------- Кнопка (Button): primary / secondary ---------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  min-height: 2.75rem;
+  padding: var(--space-2) var(--space-5);
+  border: 1px solid transparent;
+  border-radius: var(--radius-sm);
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  line-height: 1.2;
+  text-align: center;
+  transition: background-color 0.2s, border-color 0.2s, color 0.2s;
+}
+
+.btn--primary {
+  background: var(--color-accent);
+  color: var(--color-on-accent);
+}
+
+.btn--primary:hover {
+  background: var(--color-accent-hover);
+  color: var(--color-on-accent);
+}
+
+.btn--secondary {
+  background: transparent;
+  border-color: var(--color-border-strong);
+  color: var(--color-accent);
+}
+
+.btn--secondary:hover {
+  border-color: var(--color-accent);
+  color: var(--color-accent-hover);
+}
+
+.btn--block {
+  width: 100%;
+}
+
+.btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+/* ---------- Шапка та навігація (Navbar) ---------- */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: var(--color-bg);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.site-header__inner {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  min-height: var(--header-h);
+  gap: var(--space-4);
+}
+
+.logo {
+  justify-self: start;
+  font-family: var(--font-display);
+  font-size: var(--fs-lg);
+  color: var(--color-accent);
+}
+
+.logo:hover {
+  color: var(--color-accent-hover);
+}
+
+.site-nav__list {
+  display: flex;
+  align-items: center;
+  gap: var(--space-5);
+}
+
+.site-nav__link {
+  display: inline-block;
+  padding-block: var(--space-2);
+  font-size: var(--fs-sm);
+  color: var(--color-text-muted);
+  border-bottom: 1px solid transparent;
+}
+
+.site-nav__link:hover {
+  color: var(--color-text);
+}
+
+.site-nav__link[aria-current="page"] {
+  color: var(--color-accent);
+  border-bottom-color: var(--color-accent);
+}
+
+.site-nav__admin {
+  padding: var(--space-1) var(--space-3);
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.site-nav__admin:hover {
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+}
+
+.site-header__actions {
+  display: flex;
+  justify-self: end;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.icon-btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  background: transparent;
+  border: 0;
+  border-radius: var(--radius-sm);
+  color: var(--color-text-soft);
+}
+
+.icon-btn:hover {
+  color: var(--color-accent);
+}
+
+.icon-btn__count {
+  position: absolute;
+  top: 0.1rem;
+  right: 0;
+  min-width: 1.1rem;
+  padding-inline: 0.25rem;
+  background: var(--color-accent);
+  border-radius: 999px;
+  color: var(--color-on-accent);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  line-height: 1.1rem;
+  text-align: center;
+}
+
+.icon-btn__count[hidden] {
+  display: none;
+}
+
+.nav-toggle {
+  display: none;
+}
+
+.icon {
+  width: 1.25rem;
+  height: 1.25rem;
+  flex: none;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.75;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.icon--sm {
+  width: 1rem;
+  height: 1rem;
+}
+
+/* ---------- Картка товару (Product Card) ---------- */
+.product-card {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+}
+
+.product-card[hidden] {
+  display: none;
+}
+
+.product-card__media {
+  position: relative;
+  aspect-ratio: 3 / 2;
+  background: var(--color-surface-raised);
+}
+
+.product-card__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.product-card__badges {
+  position: absolute;
+  top: var(--space-2);
+  left: var(--space-2);
+  display: flex;
+  gap: var(--space-1);
+}
+
+.product-card__body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: var(--space-2);
+  padding: var(--space-4);
+}
+
+.product-card__head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-3);
+}
+
+.product-card__title {
+  font-size: var(--fs-sm);
+}
+
+.product-card__price {
+  flex: none;
+  font-size: var(--fs-sm);
+  color: var(--color-accent);
+}
+
+.product-card__text {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  font-size: var(--fs-xs);
+  line-height: 1.6;
+  color: var(--color-text-muted);
+}
+
+.product-card__allergen {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  font-size: 0.6875rem;
+  color: var(--color-allergen);
+}
+
+.product-card__body > .btn {
+  margin-top: auto;
+}
+
+.product-card__body .btn {
+  min-height: 2.5rem;
+  font-weight: 500;
+  color: var(--color-text-soft);
+  border-color: var(--color-border-strong);
+}
+
+.product-card__body .btn:hover {
+  color: var(--color-accent);
+  border-color: var(--color-accent);
+}
+
+/* ---------- Бейдж (ХІТ / VEGAN) ---------- */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  padding: 0.125rem 0.4rem;
+  border-radius: 4px;
+  font-family: var(--font-mono);
+  font-size: 0.625rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
+.badge--hit {
+  background: var(--color-accent);
+  color: var(--color-on-accent);
+}
+
+.badge--vegan {
+  background: var(--color-vegan-bg);
+  color: var(--color-vegan-text);
+}
+
+/* ---------- Таб-фільтр категорій (Category Tab) ---------- */
+.filter-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.category-tab {
+  min-height: 2.5rem;
+  padding: var(--space-2) var(--space-4);
+  background: transparent;
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-sm);
+  font-size: var(--fs-sm);
+  color: var(--color-text-muted);
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+}
+
+.category-tab:hover {
+  color: var(--color-text);
+  border-color: var(--color-accent);
+}
+
+.category-tab[aria-pressed="true"] {
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+  color: var(--color-on-accent);
+  font-weight: 600;
+}
+
+/* ---------- Картка відгуку (Review Card) ---------- */
+.review-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  padding: var(--space-5);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+}
+
+.review-card__stars {
+  display: flex;
+  gap: 2px;
+  color: var(--color-accent);
+}
+
+.review-card__stars .icon {
+  width: 0.875rem;
+  height: 0.875rem;
+  fill: currentColor;
+  stroke: none;
+}
+
+.review-card__text {
+  flex: 1;
+  font-size: var(--fs-sm);
+  font-style: italic;
+  color: var(--color-text-muted);
+}
+
+.review-card__meta {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-3);
+  font-size: var(--fs-xs);
+}
+
+.review-card__author {
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.review-card__time {
+  font-family: var(--font-mono);
+  color: var(--color-text-muted);
+}
+
+/* ---------- Статистичний блок (Stat) ---------- */
+.stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-6) var(--space-7);
+}
+
+.stat {
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+.stat__value {
+  font-family: var(--font-display);
+  font-size: var(--fs-lg);
+  color: var(--color-accent);
+}
+
+.stat__label {
+  font-size: var(--fs-xs);
+  color: var(--color-text-muted);
+}
+
+/* ---------- Панель (Panel) ---------- */
+.panel {
+  padding: var(--space-5);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+}
+
+.panel__title {
+  font-family: var(--font-body);
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin-bottom: var(--space-4);
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+/* <legend> всередині панелі: прибираємо «розрив» рамки, щоб заголовок був усередині */
+legend.panel__title {
+  float: left;
+  width: 100%;
+  padding: 0;
+}
+
+legend.panel__title + * {
+  clear: both;
+}
+
+.panel__title .icon {
+  color: var(--color-accent);
+}
+
+.panel__title--display {
+  font-family: var(--font-display);
+  font-size: var(--fs-lg);
+  font-weight: 400;
+}
+
+.panel__hint {
+  margin-top: var(--space-3);
+  font-size: var(--fs-xs);
+  color: var(--color-text-muted);
+}
+
+/* ---------- Поля форми (Input, Textarea, Select) ---------- */
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.field + .field {
+  margin-top: var(--space-4);
+}
+
+.field__label {
+  font-size: var(--fs-xs);
+  color: var(--color-text-muted);
+}
+
+.field__input {
+  width: 100%;
+  min-height: 2.75rem;
+  padding: var(--space-3) var(--space-4);
+  background: var(--color-surface-raised);
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-sm);
+  font-size: var(--fs-sm);
+  color: var(--color-text);
+  color-scheme: dark;
+}
+
+.field__input::placeholder {
+  color: #a08158;
+}
+
+.field__input:hover {
+  border-color: #6b4524;
+}
+
+.field__input:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 1px;
+  border-color: var(--color-accent);
+}
+
+.field__input:user-invalid {
+  border-color: var(--color-danger);
+}
+
+textarea.field__input {
+  min-height: 6rem;
+  resize: vertical;
+}
+
+/* ---------- Селектор часу (Time Slot) та кількості гостей (Guest Counter) ---------- */
+.choice-grid {
+  display: grid;
+  gap: var(--space-2);
+}
+
+.choice-grid--slots {
+  grid-template-columns: repeat(7, 1fr);
+}
+
+.choice-grid--guests {
+  grid-template-columns: repeat(8, 2.5rem);
+}
+
+.choice-grid--rating {
+  grid-template-columns: repeat(5, 2.5rem);
+}
+
+.choice {
+  position: relative;
+}
+
+.choice__input {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.choice__label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.5rem;
+  padding-inline: var(--space-2);
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  color: var(--color-text-muted);
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+}
+
+.choice__input:hover + .choice__label {
+  border-color: var(--color-accent);
+  color: var(--color-text);
+}
+
+.choice__input:checked + .choice__label {
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+  color: var(--color-on-accent);
+  font-weight: 500;
+}
+
+.choice__input:focus-visible + .choice__label {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+.choice__input:disabled {
+  cursor: not-allowed;
+}
+
+.choice__input:disabled + .choice__label {
+  color: #7a5a30;
+  text-decoration: line-through;
+  border-color: var(--color-border);
+}
+
+.choice--guest .choice__label {
+  font-family: var(--font-body);
+  font-size: var(--fs-sm);
+}
+
+/* ---------- Вибір способу оплати (Option Card) ---------- */
+.option-card {
+  position: relative;
+  display: block;
+}
+
+.option-card__input {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.option-card__body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  height: 100%;
+  padding: var(--space-4);
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  transition: border-color 0.2s, background-color 0.2s;
+}
+
+.option-card__title {
+  font-size: var(--fs-sm);
+  font-weight: 600;
+}
+
+.option-card__text {
+  font-size: var(--fs-xs);
+  color: var(--color-text-muted);
+}
+
+.option-card__input:hover + .option-card__body {
+  border-color: var(--color-border-strong);
+}
+
+.option-card__input:checked + .option-card__body {
+  border-color: var(--color-accent);
+  background: var(--color-surface-raised);
+}
+
+.option-card__input:focus-visible + .option-card__body {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+/* ---------- Лічильник кількості (Quantity) ---------- */
+.quantity {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-sm);
+}
+
+.quantity__btn {
+  width: 2.25rem;
+  height: 2.25rem;
+  background: transparent;
+  border: 0;
+  color: var(--color-accent);
+  font-size: var(--fs-lg);
+  line-height: 1;
+}
+
+.quantity__btn:hover {
+  color: var(--color-accent-hover);
+}
+
+.quantity__value {
+  min-width: 1.75rem;
+  text-align: center;
+  font-family: var(--font-mono);
+  font-size: var(--fs-sm);
+}
+
+/* ---------- Підвал (Footer) ---------- */
+.site-footer {
+  background: var(--color-bg);
+  border-top: 1px solid var(--color-border);
+}
+
+.site-footer__inner {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: var(--space-4);
+  min-height: 4.5rem;
+  padding-block: var(--space-5);
+}
+
+.site-footer__logo {
+  justify-self: start;
+  font-family: var(--font-display);
+  color: var(--color-accent);
+}
+
+.site-footer__info {
+  font-size: var(--fs-xs);
+  font-style: normal;
+  text-align: center;
+  color: var(--color-text-muted);
+}
+
+.site-footer__info a {
+  color: inherit;
+}
+
+.site-footer__info a:hover {
+  color: var(--color-accent);
+}
+
+.site-footer__copy {
+  justify-self: end;
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  color: var(--color-text-muted);
+}
+
+/* ---------- Планшет ---------- */
+@media (max-width: 64em) {
+  .choice-grid--slots {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+
+/* ---------- Мобільна навігація ---------- */
+@media (max-width: 52em) {
+  .site-header__inner {
+    grid-template-columns: 1fr auto;
+    grid-template-areas:
+      "logo actions"
+      "nav nav";
+    row-gap: 0;
+  }
+
+  .logo {
+    grid-area: logo;
+  }
+
+  .site-header__actions {
+    grid-area: actions;
+  }
+
+  .site-nav {
+    grid-area: nav;
+  }
+
+  .site-nav__list {
+    flex-wrap: wrap;
+    gap: var(--space-1) var(--space-4);
+    padding-bottom: var(--space-3);
+  }
+
+  .js .nav-toggle {
+    display: inline-flex;
+  }
+
+  .js .site-nav {
+    display: none;
+    padding-block: var(--space-2) var(--space-3);
+  }
+
+  .js .site-nav.is-open {
+    display: block;
+  }
+
+  .js .site-nav__list {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    padding: 0;
+  }
+
+  .js .site-nav__link {
+    display: block;
+    padding-block: var(--space-3);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .js .site-nav__link[aria-current="page"] {
+    border-bottom-color: var(--color-accent);
+  }
+
+  .js .site-nav__item--admin {
+    padding-top: var(--space-3);
+  }
+
+  .site-footer__inner {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    text-align: center;
+    gap: var(--space-3);
+  }
+
+  .site-footer__logo,
+  .site-footer__copy {
+    justify-self: center;
+  }
+}
+
+/* ---------- Мобільний екран ---------- */
+@media (max-width: 40em) {
+  .choice-grid--slots {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .choice-grid--guests {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .panel {
+    padding: var(--space-4);
+  }
+}

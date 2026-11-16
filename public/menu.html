@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Меню — Затишна кава</title>
+  <meta name="description" content="Меню кав&#x27;ярні «Затишна кава»: кава, чай, холодні напої, їжа та десерти з цінами й інформацією про алергени.">
+  <meta name="theme-color" content="#110a04">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/fonts.css">
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/pages.css">
+  <link rel="stylesheet" href="css/interactive.css">
+  <script src="js/js-flag.js"></script>
+  <script src="js/validation.js" defer></script>
+  <script src="js/components.js" defer></script>
+  <script src="js/api.js" defer></script>
+  <script src="js/main.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Перейти до основного вмісту</a>
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <a class="logo" href="index.html">Затишна кава</a>
+      <nav class="site-nav" id="site-nav" aria-label="Основна навігація">
+        <ul class="site-nav__list">
+          <li><a class="site-nav__link" href="index.html">Головна</a></li>
+          <li><a class="site-nav__link" href="menu.html" aria-current="page">Меню</a></li>
+          <li><a class="site-nav__link" href="order.html">Замовлення</a></li>
+          <li><a class="site-nav__link" href="booking.html">Бронювання</a></li>
+          <li><a class="site-nav__link" href="contacts.html">Контакти</a></li>
+          <li class="site-nav__item--admin"><a class="site-nav__admin" href="#" title="Адмін-панель (поза межами цієї роботи)">Admin</a></li>
+        </ul>
+      </nav>
+      <div class="site-header__actions">
+        <a class="icon-btn" href="#" aria-label="Особистий кабінет"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></a>
+        <a class="icon-btn" href="order.html" aria-label="Кошик"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg><span class="icon-btn__count" hidden>0</span></a>
+        <button class="icon-btn nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Меню сайту"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <div class="container page-head">
+      <p class="eyebrow">Меню</p>
+      <h1>Наші напої та їжа</h1>
+      <p class="lead">Все виготовляється щодня зі свіжих інгредієнтів</p>
+    </div>
+
+    <div class="container page-body">
+      <nav class="menu-toolbar" aria-label="Категорії меню">
+        <ul class="filter-tabs">
+        <li><button class="category-tab" type="button" data-filter="all" aria-pressed="true">Все меню</button></li>
+        <li><button class="category-tab" type="button" data-filter="kava" aria-pressed="false">Кава</button></li>
+        <li><button class="category-tab" type="button" data-filter="tea" aria-pressed="false">Чай та альтернативи</button></li>
+        <li><button class="category-tab" type="button" data-filter="cold" aria-pressed="false">Холодні напої</button></li>
+        <li><button class="category-tab" type="button" data-filter="food" aria-pressed="false">Їжа</button></li>
+        <li><button class="category-tab" type="button" data-filter="dessert" aria-pressed="false">Десерти</button></li>
+        </ul>
+        <div class="menu-tools">
+          <div class="field">
+            <label class="field__label" for="menu-search">Пошук у меню</label>
+            <input class="field__input" type="search" id="menu-search" placeholder="Наприклад, капучино" autocomplete="off">
+          </div>
+          <div class="field">
+            <label class="field__label" for="menu-sort">Сортування</label>
+            <select class="field__input" id="menu-sort">
+              <option value="default">За замовчуванням</option>
+              <option value="price-asc">Спочатку дешевші</option>
+              <option value="price-desc">Спочатку дорожчі</option>
+              <option value="name">За назвою (А–Я)</option>
+            </select>
+          </div>
+        </div>
+        <p class="menu-count" id="menu-count" role="status" aria-live="polite">Показано позицій: 16</p>
+      </nav>
+
+      <h2 class="visually-hidden">Позиції меню</h2>
+      <p class="menu-empty" id="menu-empty" hidden>Нічого не знайдено. Змініть запит або оберіть іншу категорію.</p>
+      <ul class="product-grid">
+      <li>
+        <article class="product-card" data-category="kava" data-id="1">
+      <div class="product-card__media">
+        <img class="product-card__img" src="images/espreso.svg" alt="Чашка еспресо на дерев&#x27;яному столі, вигляд зверху" width="600" height="400">
+        <div class="product-card__badges"><span class="badge badge--hit">Хіт</span></div>
+      </div>
+      <div class="product-card__body">
+        <div class="product-card__head">
+          <h3 class="product-card__title">Еспресо</h3>
+          <p class="product-card__price">65&nbsp;₴</p>
+        </div>
+        <p class="product-card__text">Класичний подвійний еспресо з зерен арабіки, обсмажених у Львові. Насичений смак із нотами шоколаду та карамелі.</p>
+        <button class="btn btn--secondary" type="button" data-add-to-cart>До кошика</button>
+      </div>
+        </article>
+      </li>
+      <li>
+        <article class="product-card" data-category="kava" data-id="2">
+      <div class="product-card__media">
+        <img class="product-card__img" src="images/kapuchyno.svg" alt="Капучино з малюнком на піні у чорній чашці" width="600" height="400">
+        <div class="product-card__badges"><span class="badge badge--hit">Хіт</span></div>
+      </div>
+      <div class="product-card__body">
+        <div class="product-card__head">
+          <h3 class="product-card__title">Капучино</h3>
+          <p class="product-card__price">89&nbsp;₴</p>
+        </div>
+        <p class="product-card__text">Еспресо з ніжною мікропіною молока. Ідеальний баланс кави та молока — класика, що не набридає.</p>
+        <p class="product-card__allergen"><svg class="icon icon--sm" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg><span class="visually-hidden">Алергени: </span>молоко</p>
+        <button class="btn btn--secondary" type="button" data-add-to-cart>До кошика</button>
+      </div>
+        </article>
+      </li>
+      <li>
+        <article class="product-card" data-category="kava" data-id="3">
+      <div class="product-card__media">
+        <img class="product-card__img" src="images/late.svg" alt="Латте з малюнком-розеткою на дерев&#x27;яному столі" width="600" height="400">
+        
+      </div>
+      <div class="product-card__body">
+        <div class="product-card__head">
+          <h3 class="product-card__title">Латте</h3>
+          <p class="product-card__price">99&nbsp;₴</p>
+        </div>
+        <p class="product-card__text">Еспресо з бархатистою молочною піною. Можемо приготувати на рослинному молоці за вашим бажанням.</p>
+        <p class="product-card__allergen"><svg class="icon icon--sm" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg><span class="visually-hidden">Алергени: </span>молоко</p>
+        <button class="btn btn--secondary" type="button" data-add-to-cart>До кошика</button>
+      </div>
+        </article>
+      </li>
+      <li>
+        <article class="product-card" data-category="kava" data-id="4">
+      <div class="product-card__media">
+        <img class="product-card__img" src="images/flet-vait.svg" alt="Флет вайт із серцем на піні та ложечкою" width="600" height="400">
+        <div class="product-card__badges"><span class="badge badge--hit">Хіт</span></div>
+      </div>
+      <div class="product-card__body">
+        <div class="product-card__head">
+          <h3 class="product-card__title">Флет Вайт</h3>
+          <p class="product-card__price">95&nbsp;₴</p>
+        </div>
+        <p class="product-card__text">Ристретто подвійний із невеликою кількістю оксамитового молока. Яскравий смак кави з м&#x27;якою текстурою.</p>
+        <p class="product-card__allergen"><svg class="icon icon--sm" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg><span class="visually-hidden">Алергени: </span>молоко</p>
+        <button class="btn btn--secondary" type="button" data-add-to-cart>До кошика</button>
+      </div>
+        </article>
+      </li>
+      <li>
+        <article class="product-card" data-category="kava" data-id="5">
+      <div class="product-card__media">
+        <img class="product-card__img" src="images/filtr-kava.svg" alt="Фільтр-кава в червоній чашці на мармуровому столі" width="600" height="400" loading="lazy">
+        <div class="product-card__badges"><span class="badge badge--hit">Хіт</span><span class="badge badge--vegan"><svg class="icon icon--sm" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>Vegan</span></div>
+      </div>
+      <div class="product-card__body">
+        <div class="product-card__head">
+          <h3 class="product-card__title">Фільтр-кава</h3>
+          <p class="product-card__price">85&nbsp;₴</p>
+        </div>
+        <p class="product-card__text">Авторська фільтр-кава методом пуровер. Змінюється щотижня — запитайте бариста про поточне зерно.</p>
+        <button class="btn btn--secondary" type="button" data-add-to-cart>До кошика</button>
+      </div>
+        </article>
+      </li>
+      <li>
+        <article class="product-card" data-category="kava" data-id="6">
+      <div class="product-card__media">
+        <img class="product-card__img" src="images/raf-kafe.svg" alt="Раф-кава у білій чашці на мармурі" width="600" height="400" loading="lazy">
+        
+      </div>
+      <div class="product-card__body">
+        <div class="product-card__head">
+          <h3 class="product-card__title">Раф-кафе</h3>
+          <p class="product-card__price">115&nbsp;₴</p>
+        </div>
+        <p class="product-card__text">Вершки, еспресо та ванільний цукор, збиті разом. Ніжний, солодкуватий напій із нотами карамелі.</p>
+        <p class="product-card__allergen"><svg class="icon icon--sm" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg><span class="visually-hidden">Алергени: </span>молоко</p>
+        <button class="btn btn--secondary" type="button" data-add-to-cart>До кошика</button>
+      </div>
+        </article>
+      </li>
+      <li>
+        <article class="product-card" data-category="tea" data-id="7">
+      <div class="product-card__media">
+        <img class="product-card__img" src="images/matcha-late.svg" alt="Матча латте в чашці на зеленому тлі" width="600" height="400" loading="lazy">
+        <div class="product-card__badges"><span class="badge badge--vegan"><svg class="icon icon--sm" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>Vegan</span></div>
+      </div>
+      <div class="product-card__body">
+        <div class="product-card__head">
+          <h3 class="product-card__title">Матча Латте</h3>
+          <p class="product-card__price">115&nbsp;₴</p>
+        </div>
+        <p class="product-card__text">Церемоніальна матча з Кіото, збита з вівсяним молоком. Природна солодкість і трав&#x27;яна свіжість.</p>
+        <button class="btn btn--secondary" type="button" data-add-to-cart>До кошика</button>
+      </div>
+        </article>
+      </li>
+      <li>
+        <article class="product-card" data-category="tea" data-id="8">
+      <div class="product-card__media">
+        <img class="product-card__img" src="images/chai-imbyr.svg" alt="Чашка імбирного чаю зі скибочкою лимона" width="600" height="400" loading="lazy">
+        <div class="product-card__badges"><span class="badge badge--vegan"><svg class="icon icon--sm" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>Vegan</span></div>
+      </div>
+      <div class="product-card__body">
+        <div class="product-card__head">
+          <h3 class="product-card__title">Чай з імбиром</h3>
+          <p class="product-card__price">79&nbsp;₴</p>
+        </div>
+        <p class="product-card__text">Свіжий імбир, лимон, сироп агави й пряні спеції. Зігріває та заряджає. Без кофеїну.</p>
+        <button class="btn btn--secondary" type="button" data-add-to-cart>До кошика</button>
+      </div>
+        </article>
+      </li>
+      <li>
+        <article class="product-card" data-category="cold" data-id="9">
+      <div class="product-card__media">
+        <img class="product-card__img" src="images/ais-late.svg" alt="Склянка айс-латте з кубиками льоду та трубочкою" width="600" height="400" loading="lazy">
+        
+      </div>
+      <div class="product-card__body">
+        <div class="product-card__head">
+          <h3 class="product-card__title">Айс-латте</h3>
+          <p class="product-card__price">105&nbsp;₴</p>
+        </div>
+        <p class="product-card__text">Подвійний еспресо з холодним молоком і льодом. Освіжає в спеку й бадьорить не гірше гарячої кави.</p>
+        <p class="product-card__allergen"><svg class="icon icon--sm" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg><span class="visually-hidden">Алергени: </span>молоко</p>
+        <button class="btn btn--secondary" type="button" data-add-to-cart>До кошика</button>
+      </div>
+        </article>
+      </li>
+      <li>
+        <article class="product-card" data-category="cold" data-id="10">
+      <div class="product-card__media">
+        <img class="product-card__img" src="images/kold-bryu.svg" alt="Склянка колд брю з льодом" width="600" height="400" loading="lazy">
+        <div class="product-card__badges"><span class="badge badge--vegan"><svg class="icon icon--sm" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>Vegan</span></div>
+      </div>
+      <div class="product-card__body">
+        <div class="product-card__head">
+          <h3 class="product-card__title">Колд брю</h3>
+          <p class="product-card__price">99&nbsp;₴</p>
+        </div>
+        <p class="product-card__text">Кава холодного заварювання, яку ми настоюємо 16 годин. М&#x27;який смак без гіркоти, подається з льодом.</p>
+        <button class="btn btn--secondary" type="button" data-add-to-cart>До кошика</button>
+      </div>
+        </article>
+      </li>
+      <li>
+        <article class="product-card" data-category="food" data-id="11">
+      <div class="product-card__media">
+        <img class="product-card__img" src="images/toast-avocado.svg" alt="Дві скибки тосту з авокадо на тарілці" width="600" height="400" loading="lazy">
+        <div class="product-card__badges"><span class="badge badge--vegan"><svg class="icon icon--sm" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>Vegan</span></div>
+      </div>
+      <div class="product-card__body">
+        <div class="product-card__head">
+          <h3 class="product-card__title">Тост з авокадо</h3>
+          <p class="product-card__price">140&nbsp;₴</p>
+        </div>
+        <p class="product-card__text">Хрусткий тост на заквасці з авокадо, помідорами чері та лимонним соком. Легкий і ситний сніданок.</p>
+        <p class="product-card__allergen"><svg class="icon icon--sm" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg><span class="visually-hidden">Алергени: </span>глютен</p>
+        <button class="btn btn--secondary" type="button" data-add-to-cart>До кошика</button>
+      </div>
+        </article>
+      </li>
+      <li>
+        <article class="product-card" data-category="food" data-id="12">
+      <div class="product-card__media">
+        <img class="product-card__img" src="images/sendvich.svg" alt="Сендвіч з індичкою та овочами на тарілці" width="600" height="400" loading="lazy">
+        
+      </div>
+      <div class="product-card__body">
+        <div class="product-card__head">
+          <h3 class="product-card__title">Сендвіч з індичкою</h3>
+          <p class="product-card__price">135&nbsp;₴</p>
+        </div>
+        <p class="product-card__text">Сендвіч із копченою індичкою, свіжим салатом, томатами та вершковим сиром на тостовому хлібі.</p>
+        <p class="product-card__allergen"><svg class="icon icon--sm" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg><span class="visually-hidden">Алергени: </span>глютен, молоко</p>
+        <button class="btn btn--secondary" type="button" data-add-to-cart>До кошика</button>
+      </div>
+        </article>
+      </li>
+      <li>
+        <article class="product-card" data-category="food" data-id="13">
+      <div class="product-card__media">
+        <img class="product-card__img" src="images/syrnyky.svg" alt="Три сирники зі сметаною та ягодами" width="600" height="400" loading="lazy">
+        <div class="product-card__badges"><span class="badge badge--hit">Хіт</span></div>
+      </div>
+      <div class="product-card__body">
+        <div class="product-card__head">
+          <h3 class="product-card__title">Сирники</h3>
+          <p class="product-card__price">125&nbsp;₴</p>
+        </div>
+        <p class="product-card__text">Домашні сирники зі сметаною та ягідним соусом. Готуємо до замовлення, тож потрібно трохи зачекати.</p>
+        <p class="product-card__allergen"><svg class="icon icon--sm" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg><span class="visually-hidden">Алергени: </span>молоко, яйця, глютен</p>
+        <button class="btn btn--secondary" type="button" data-add-to-cart>До кошика</button>
+      </div>
+        </article>
+      </li>
+      <li>
+        <article class="product-card" data-category="dessert" data-id="14">
+      <div class="product-card__media">
+        <img class="product-card__img" src="images/medovyk.svg" alt="Шматок медовика на білій тарілці" width="600" height="400" loading="lazy">
+        <div class="product-card__badges"><span class="badge badge--hit">Хіт</span></div>
+      </div>
+      <div class="product-card__body">
+        <div class="product-card__head">
+          <h3 class="product-card__title">Медовик</h3>
+          <p class="product-card__price">95&nbsp;₴</p>
+        </div>
+        <p class="product-card__text">Тонкі медові коржі та сметанний крем. Печемо щоранку, тож до обіду частина вже закінчується.</p>
+        <p class="product-card__allergen"><svg class="icon icon--sm" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg><span class="visually-hidden">Алергени: </span>глютен, молоко, яйця</p>
+        <button class="btn btn--secondary" type="button" data-add-to-cart>До кошика</button>
+      </div>
+        </article>
+      </li>
+      <li>
+        <article class="product-card" data-category="dessert" data-id="15">
+      <div class="product-card__media">
+        <img class="product-card__img" src="images/chizkeik.svg" alt="Шматок чізкейку з ягідним соусом" width="600" height="400" loading="lazy">
+        
+      </div>
+      <div class="product-card__body">
+        <div class="product-card__head">
+          <h3 class="product-card__title">Чізкейк</h3>
+          <p class="product-card__price">110&nbsp;₴</p>
+        </div>
+        <p class="product-card__text">Класичний нью-йоркський чізкейк на пісочній основі з соусом із лісових ягід.</p>
+        <p class="product-card__allergen"><svg class="icon icon--sm" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg><span class="visually-hidden">Алергени: </span>глютен, молоко, яйця</p>
+        <button class="btn btn--secondary" type="button" data-add-to-cart>До кошика</button>
+      </div>
+        </article>
+      </li>
+      <li>
+        <article class="product-card" data-category="dessert" data-id="16">
+      <div class="product-card__media">
+        <img class="product-card__img" src="images/kruasan.svg" alt="Золотистий круасан на мармуровому столі" width="600" height="400" loading="lazy">
+        
+      </div>
+      <div class="product-card__body">
+        <div class="product-card__head">
+          <h3 class="product-card__title">Круасан з мигдалем</h3>
+          <p class="product-card__price">85&nbsp;₴</p>
+        </div>
+        <p class="product-card__text">Масляний круасан із мигдальним кремом, випікається о 6:00. Найкраще смакує з флет вайтом.</p>
+        <p class="product-card__allergen"><svg class="icon icon--sm" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg><span class="visually-hidden">Алергени: </span>глютен, молоко, горіхи</p>
+        <button class="btn btn--secondary" type="button" data-add-to-cart>До кошика</button>
+      </div>
+        </article>
+      </li>
+      </ul>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container site-footer__inner">
+      <a class="site-footer__logo" href="index.html">Затишна кава</a>
+      <address class="site-footer__info">вул. Саксаганського 47, Київ · <a href="tel:+380441234567">+38 044 123 4567</a> · Пн–Пт 07:00–22:00</address>
+      <p class="site-footer__copy"><small>© 2026</small></p>
+    </div>
+  </footer>
+</body>
+</html>

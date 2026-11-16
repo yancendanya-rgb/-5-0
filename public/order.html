@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Замовлення на винос — Затишна кава</title>
+  <meta name="description" content="Оформіть замовлення на винос у кав&#x27;ярні «Затишна кава»: оберіть час отримання та спосіб оплати.">
+  <meta name="theme-color" content="#110a04">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/fonts.css">
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/pages.css">
+  <link rel="stylesheet" href="css/interactive.css">
+  <script src="js/js-flag.js"></script>
+  <script src="js/validation.js" defer></script>
+  <script src="js/components.js" defer></script>
+  <script src="js/api.js" defer></script>
+  <script src="js/main.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Перейти до основного вмісту</a>
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <a class="logo" href="index.html">Затишна кава</a>
+      <nav class="site-nav" id="site-nav" aria-label="Основна навігація">
+        <ul class="site-nav__list">
+          <li><a class="site-nav__link" href="index.html">Головна</a></li>
+          <li><a class="site-nav__link" href="menu.html">Меню</a></li>
+          <li><a class="site-nav__link" href="order.html" aria-current="page">Замовлення</a></li>
+          <li><a class="site-nav__link" href="booking.html">Бронювання</a></li>
+          <li><a class="site-nav__link" href="contacts.html">Контакти</a></li>
+          <li class="site-nav__item--admin"><a class="site-nav__admin" href="#" title="Адмін-панель (поза межами цієї роботи)">Admin</a></li>
+        </ul>
+      </nav>
+      <div class="site-header__actions">
+        <a class="icon-btn" href="#" aria-label="Особистий кабінет"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></a>
+        <a class="icon-btn" href="order.html" aria-label="Кошик"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg><span class="icon-btn__count" hidden>0</span></a>
+        <button class="icon-btn nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Меню сайту"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <div class="container container--narrow page-head">
+      <p class="eyebrow">Замовлення</p>
+      <h1>Забирайте без черги</h1>
+      <p class="lead">Оберіть час отримання — ми приготуємо замовлення до вашого приходу.</p>
+    </div>
+
+    <div class="container container--narrow page-body">
+      <div class="two-col">
+        <form class="stack" id="order-form" novalidate action="#" method="post">
+          <section class="panel" aria-labelledby="items-title">
+            <h2 class="panel__title" id="items-title"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>Ваш кошик</h2>
+            <ul class="order-items" id="order-items"></ul>
+            <p class="order-empty" id="order-empty">Кошик порожній. <a href="menu.html">Перейти до меню</a></p>
+          </section>
+
+          <fieldset class="panel">
+            <legend class="panel__title"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>Час отримання</legend>
+            <div class="choice-grid choice-grid--slots">
+            <div class="choice"><input class="choice__input" type="radio" name="pickup" id="p-asap" value="asap" checked><label class="choice__label" for="p-asap">~15 хв</label></div>
+            <div class="choice"><input class="choice__input" type="radio" name="pickup" id="p-0830" value="08:30"><label class="choice__label" for="p-0830">08:30</label></div>
+            <div class="choice"><input class="choice__input" type="radio" name="pickup" id="p-0900" value="09:00"><label class="choice__label" for="p-0900">09:00</label></div>
+            <div class="choice"><input class="choice__input" type="radio" name="pickup" id="p-0930" value="09:30" disabled><label class="choice__label" for="p-0930">09:30</label></div>
+            <div class="choice"><input class="choice__input" type="radio" name="pickup" id="p-1000" value="10:00"><label class="choice__label" for="p-1000">10:00</label></div>
+            <div class="choice"><input class="choice__input" type="radio" name="pickup" id="p-1030" value="10:30"><label class="choice__label" for="p-1030">10:30</label></div>
+            <div class="choice"><input class="choice__input" type="radio" name="pickup" id="p-1100" value="11:00"><label class="choice__label" for="p-1100">11:00</label></div>
+            <div class="choice"><input class="choice__input" type="radio" name="pickup" id="p-1130" value="11:30"><label class="choice__label" for="p-1130">11:30</label></div>
+            <div class="choice"><input class="choice__input" type="radio" name="pickup" id="p-1200" value="12:00"><label class="choice__label" for="p-1200">12:00</label></div>
+            <div class="choice"><input class="choice__input" type="radio" name="pickup" id="p-1230" value="12:30" disabled><label class="choice__label" for="p-1230">12:30</label></div>
+            <div class="choice"><input class="choice__input" type="radio" name="pickup" id="p-1300" value="13:00"><label class="choice__label" for="p-1300">13:00</label></div>
+            <div class="choice"><input class="choice__input" type="radio" name="pickup" id="p-1330" value="13:30"><label class="choice__label" for="p-1330">13:30</label></div>
+            <div class="choice"><input class="choice__input" type="radio" name="pickup" id="p-1400" value="14:00"><label class="choice__label" for="p-1400">14:00</label></div>
+            <div class="choice"><input class="choice__input" type="radio" name="pickup" id="p-1430" value="14:30"><label class="choice__label" for="p-1430">14:30</label></div>
+            </div>
+            <p class="panel__hint">Перекреслений час — зайнятий</p>
+          </fieldset>
+
+          <fieldset class="panel">
+            <legend class="panel__title">Оплата</legend>
+            <div class="payment-grid">
+              <label class="option-card"><input class="option-card__input" type="radio" name="payment" value="card-online" checked><span class="option-card__body"><span class="option-card__title">Карткою онлайн</span><span class="option-card__text">Сплатіть зараз — просто заберіть замовлення</span></span></label>
+              <label class="option-card"><input class="option-card__input" type="radio" name="payment" value="on-site"><span class="option-card__body"><span class="option-card__title">На місці</span><span class="option-card__text">Готівкою або карткою під час отримання</span></span></label>
+            </div>
+          </fieldset>
+
+          <fieldset class="panel">
+            <legend class="panel__title">Контактні дані</legend>
+            <div class="form-grid">
+              <div class="field">
+                <label class="field__label" for="o-name">Ім'я *</label>
+                <input class="field__input" type="text" id="o-name" name="name" placeholder="Як до вас звертатися" autocomplete="name" required>
+              </div>
+              <div class="field">
+                <label class="field__label" for="o-phone">Телефон *</label>
+                <input class="field__input" type="tel" id="o-phone" name="phone" placeholder="+380 XX XXX XX XX" autocomplete="tel" pattern="\+?[0-9\s\-\(\)]{10,}" required>
+              </div>
+              <div class="field form-grid__full">
+                <label class="field__label" for="o-note">Коментар до замовлення</label>
+                <textarea class="field__input" id="o-note" name="note" rows="3" placeholder="Рослинне молоко, без цукру..."></textarea>
+              </div>
+            </div>
+          </fieldset>
+
+          <div class="form-actions">
+            <button class="btn btn--primary btn--block" type="submit">Підтвердити замовлення</button>
+            <p class="form-status" id="order-status" role="status" tabindex="-1" hidden></p>
+          </div>
+        </form>
+
+        <aside class="stack aside-sticky" aria-label="Підсумок замовлення">
+          <section class="panel" aria-labelledby="total-title">
+            <h2 class="panel__title panel__title--display" id="total-title">Підсумок</h2>
+            <dl class="summary-list">
+              <div class="summary-list__row"><dt>Позицій у кошику</dt><dd id="sum-count">0</dd></div>
+              <div class="summary-list__row"><dt>Вартість</dt><dd id="sum-items">0&nbsp;₴</dd></div>
+              <div class="summary-list__row"><dt>Знижка балами</dt><dd id="sum-discount">−0&nbsp;₴</dd></div>
+              <div class="summary-list__row"><dt>Буде нараховано балів</dt><dd id="sum-earn">+0</dd></div>
+              <div class="summary-list__row summary-list__row--total"><dt>До сплати</dt><dd id="sum-total">0&nbsp;₴</dd></div>
+            </dl>
+            <label class="bonus-toggle" for="use-bonus">
+              <input type="checkbox" id="use-bonus" form="order-form" data-points="120">
+              <span>Списати 120 бонусних балів (знижка 120&nbsp;₴). Бали видно в особистому кабінеті.</span>
+            </label>
+          </section>
+          <section class="panel" aria-labelledby="status-title">
+            <h2 class="panel__title" id="status-title">Що буде з замовленням</h2>
+            <ol class="status-steps">
+              <li class="status-steps__item" aria-current="step">Прийнято</li>
+              <li class="status-steps__item">Готується</li>
+              <li class="status-steps__item">Готово до видачі</li>
+            </ol>
+            <p class="panel__hint">Статус замовлення змінює персонал кав’ярні; його видно в адмін-API.</p>
+          </section>
+        </aside>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container site-footer__inner">
+      <a class="site-footer__logo" href="index.html">Затишна кава</a>
+      <address class="site-footer__info">вул. Саксаганського 47, Київ · <a href="tel:+380441234567">+38 044 123 4567</a> · Пн–Пт 07:00–22:00</address>
+      <p class="site-footer__copy"><small>© 2026</small></p>
+    </div>
+  </footer>
+</body>
+</html>

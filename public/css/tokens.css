@@ -1,0 +1,51 @@
+/* Дизайн-токени з дизайн-системи Figma (практична робота № 2) */
+:root {
+  /* Кольори */
+  --color-bg: #110a04;
+  --color-surface: #1e1108;
+  --color-surface-raised: #26160a;
+  --color-border: #2e1a0a;
+  --color-border-strong: #4a2c16;
+  --color-accent: #c9973d;
+  --color-accent-hover: #d4a24c;
+  --color-on-accent: #1e1108;
+  --color-text: #f5edd8;
+  --color-text-soft: #d3c6b0;
+  --color-text-muted: #b08d57;
+  --color-vegan-bg: #114326;
+  --color-vegan-text: #5ee08a;
+  --color-allergen: #e5821f;
+  --color-danger: #f08a72;
+
+  /* Типографіка */
+  --font-display: "Playfair Display", Georgia, "Times New Roman", serif;
+  --font-body: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Consolas, monospace;
+
+  --fs-xs: 0.75rem;
+  --fs-sm: 0.875rem;
+  --fs-base: 1rem;
+  --fs-lg: 1.25rem;
+  --fs-h2: clamp(1.75rem, 1.2rem + 1.6vw, 2.25rem);
+  --fs-h1: clamp(2.25rem, 1.4rem + 2.8vw, 3.25rem);
+
+  /* Відступи (крок 4 px) */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 3rem;
+  --space-8: 4.5rem;
+
+  /* Форма */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+
+  /* Сітка */
+  --container: 70rem;
+  --container-narrow: 62.5rem;
+  --gutter: 1.5rem;
+  --header-h: 3.25rem;
+}

@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Затишна кава — кав&#x27;ярня з онлайн-замовленням і бронюванням столиків</title>
+  <meta name="description" content="Затишна кава: меню з фото та цінами, замовлення на винос без черги й бронювання столика онлайн.">
+  <meta name="theme-color" content="#110a04">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/fonts.css">
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/pages.css">
+  <link rel="stylesheet" href="css/interactive.css">
+  <script src="js/js-flag.js"></script>
+  <script src="js/validation.js" defer></script>
+  <script src="js/components.js" defer></script>
+  <script src="js/api.js" defer></script>
+  <script src="js/main.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Перейти до основного вмісту</a>
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <a class="logo" href="index.html">Затишна кава</a>
+      <nav class="site-nav" id="site-nav" aria-label="Основна навігація">
+        <ul class="site-nav__list">
+          <li><a class="site-nav__link" href="index.html" aria-current="page">Головна</a></li>
+          <li><a class="site-nav__link" href="menu.html">Меню</a></li>
+          <li><a class="site-nav__link" href="order.html">Замовлення</a></li>
+          <li><a class="site-nav__link" href="booking.html">Бронювання</a></li>
+          <li><a class="site-nav__link" href="contacts.html">Контакти</a></li>
+          <li class="site-nav__item--admin"><a class="site-nav__admin" href="#" title="Адмін-панель (поза межами цієї роботи)">Admin</a></li>
+        </ul>
+      </nav>
+      <div class="site-header__actions">
+        <a class="icon-btn" href="#" aria-label="Особистий кабінет"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></a>
+        <a class="icon-btn" href="order.html" aria-label="Кошик"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg><span class="icon-btn__count" hidden>0</span></a>
+        <button class="icon-btn nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Меню сайту"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <h1 class="visually-hidden">Затишна кава — кав'ярня з онлайн-замовленням і бронюванням</h1>
+
+    <div class="promo-bar">
+      <p class="container promo-bar__text">У обідню годину в нас буває черга — замовте на винос заздалегідь або забронюйте столик.</p>
+    </div>
+
+    <section class="section" aria-labelledby="hits-title">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Хіти сезону</p>
+            <h2 id="hits-title">Обирають найчастіше</h2>
+          </div>
+          <a class="section-head__link" href="menu.html">Повне меню →</a>
+        </div>
+        <ul class="product-grid">
+      <li>
+        <article class="product-card" data-category="kava">
+      <div class="product-card__media">
+        <img class="product-card__img" src="images/espreso.svg" alt="Чашка еспресо на дерев&#x27;яному столі, вигляд зверху" width="600" height="400">
+        <div class="product-card__badges"><span class="badge badge--hit">Хіт</span></div>
+      </div>
+      <div class="product-card__body">
+        <div class="product-card__head">
+          <h3 class="product-card__title">Еспресо</h3>
+          <p class="product-card__price">65&nbsp;₴</p>
+        </div>
+        <p class="product-card__text">Класичний подвійний еспресо з зерен арабіки, обсмажених у Львові. Насичений смак із нотами шоколаду та карамелі.</p>
+        <button class="btn btn--secondary" type="button" data-add-to-cart>Додати до кошика</button>
+      </div>
+        </article>
+      </li>
+      <li>
+        <article class="product-card" data-category="kava">
+      <div class="product-card__media">
+        <img class="product-card__img" src="images/kapuchyno.svg" alt="Капучино з малюнком на піні у чорній чашці" width="600" height="400">
+        <div class="product-card__badges"><span class="badge badge--hit">Хіт</span></div>
+      </div>
+      <div class="product-card__body">
+        <div class="product-card__head">
+          <h3 class="product-card__title">Капучино</h3>
+          <p class="product-card__price">89&nbsp;₴</p>
+        </div>
+        <p class="product-card__text">Еспресо з ніжною мікропіною молока. Ідеальний баланс кави та молока — класика, що не набридає.</p>
+        <p class="product-card__allergen"><svg class="icon icon--sm" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg><span class="visually-hidden">Алергени: </span>молоко</p>
+        <button class="btn btn--secondary" type="button" data-add-to-cart>Додати до кошика</button>
+      </div>
+        </article>
+      </li>
+      <li>
+        <article class="product-card" data-category="kava">
+      <div class="product-card__media">
+        <img class="product-card__img" src="images/flet-vait.svg" alt="Флет вайт із серцем на піні та ложечкою" width="600" height="400">
+        <div class="product-card__badges"><span class="badge badge--hit">Хіт</span></div>
+      </div>
+      <div class="product-card__body">
+        <div class="product-card__head">
+          <h3 class="product-card__title">Флет Вайт</h3>
+          <p class="product-card__price">95&nbsp;₴</p>
+        </div>
+        <p class="product-card__text">Ристретто подвійний із невеликою кількістю оксамитового молока. Яскравий смак кави з м&#x27;якою текстурою.</p>
+        <p class="product-card__allergen"><svg class="icon icon--sm" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg><span class="visually-hidden">Алергени: </span>молоко</p>
+        <button class="btn btn--secondary" type="button" data-add-to-cart>Додати до кошика</button>
+      </div>
+        </article>
+      </li>
+      <li>
+        <article class="product-card" data-category="kava">
+      <div class="product-card__media">
+        <img class="product-card__img" src="images/filtr-kava.svg" alt="Фільтр-кава в червоній чашці на мармуровому столі" width="600" height="400">
+        <div class="product-card__badges"><span class="badge badge--hit">Хіт</span><span class="badge badge--vegan"><svg class="icon icon--sm" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>Vegan</span></div>
+      </div>
+      <div class="product-card__body">
+        <div class="product-card__head">
+          <h3 class="product-card__title">Фільтр-кава</h3>
+          <p class="product-card__price">85&nbsp;₴</p>
+        </div>
+        <p class="product-card__text">Авторська фільтр-кава методом пуровер. Змінюється щотижня — запитайте бариста про поточне зерно.</p>
+        <button class="btn btn--secondary" type="button" data-add-to-cart>Додати до кошика</button>
+      </div>
+        </article>
+      </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="about" aria-labelledby="about-title">
+      <figure class="about__media">
+        <img class="about__img" src="images/pro-nas.svg" alt="Інтер'єр кав'ярні: великі вікна, барна стійка з підсвіткою та лампи під стелею" width="900" height="780" loading="lazy">
+      </figure>
+      <div class="about__content">
+        <p class="eyebrow">Про нас</p>
+        <h2 class="about__quote" id="about-title">«Місце, де час сповільнюється»</h2>
+        <p>Ми відкрилися 2019 року з простою ідеєю: дати людям місце, де можна перечекати дощ, прочитати книжку або просто насолодитися тишею між ділами.</p>
+        <p>Зерно обсмажуємо разом з обсмажувальнею «Кав'ярня на Вірменській», випічку готуємо самі щоранку о 6:00.</p>
+        <dl class="stats">
+          <div class="stat"><dt class="stat__label">Рік заснування</dt><dd class="stat__value">2019</dd></div>
+          <div class="stat"><dt class="stat__label">Позицій у меню</dt><dd class="stat__value">47+</dd></div>
+          <div class="stat"><dt class="stat__label">Оцінка Google</dt><dd class="stat__value">4.9★</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="reviews-title">
+      <div class="container">
+        <div class="section-head section-head--center">
+          <div>
+            <p class="eyebrow">Відгуки</p>
+            <h2 id="reviews-title">Що кажуть гості</h2>
+          </div>
+        </div>
+        <ul class="review-grid">
+      <li>
+        <article class="review-card">
+          <h3 class="visually-hidden">Відгук: Марія К.</h3>
+          <div class="review-card__stars" role="img" aria-label="Оцінка: 5 з 5"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+          <blockquote class="review-card__text"><p>«Найкраща кава в районі. Флет вайт просто космічний, і атмосфера — чудова. Люблю сидіти біля вікна з книжкою.»</p></blockquote>
+          <footer class="review-card__meta">
+            <span class="review-card__author">Марія К.</span>
+            <span class="review-card__time">2 дні тому</span>
+          </footer>
+        </article>
+      </li>
+      <li>
+        <article class="review-card">
+          <h3 class="visually-hidden">Відгук: Андрій Г.</h3>
+          <div class="review-card__stars" role="img" aria-label="Оцінка: 5 з 5"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+          <blockquote class="review-card__text"><p>«Замовляю через сайт на винос кожного ранку — дуже зручно. Кава готова рівно тоді, коли я приходжу.»</p></blockquote>
+          <footer class="review-card__meta">
+            <span class="review-card__author">Андрій Г.</span>
+            <span class="review-card__time">1 тиждень тому</span>
+          </footer>
+        </article>
+      </li>
+      <li>
+        <article class="review-card">
+          <h3 class="visually-hidden">Відгук: Соломія В.</h3>
+          <div class="review-card__stars" role="img" aria-label="Оцінка: 5 з 5"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+          <blockquote class="review-card__text"><p>«Медовик — це окрема пісня. Тепер беру постійно. Персонал завжди привітний, не поспішають.»</p></blockquote>
+          <footer class="review-card__meta">
+            <span class="review-card__author">Соломія В.</span>
+            <span class="review-card__time">2 тижні тому</span>
+          </footer>
+        </article>
+      </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section section--surface cta" aria-labelledby="cta-title">
+      <div class="container">
+        <h2 id="cta-title">Зарезервуйте своє місце</h2>
+        <p class="cta__text">В обідній час у нас часто є черга. Забронюйте столик наперед або замовте на винос.</p>
+        <div class="cta__actions">
+          <a class="btn btn--primary" href="booking.html">Забронювати столик</a>
+          <a class="btn btn--secondary" href="order.html">Замовити на винос</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container site-footer__inner">
+      <a class="site-footer__logo" href="index.html">Затишна кава</a>
+      <address class="site-footer__info">вул. Саксаганського 47, Київ · <a href="tel:+380441234567">+38 044 123 4567</a> · Пн–Пт 07:00–22:00</address>
+      <p class="site-footer__copy"><small>© 2026</small></p>
+    </div>
+  </footer>
+</body>
+</html>
